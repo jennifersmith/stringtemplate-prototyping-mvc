@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -32,6 +33,7 @@ namespace stringtemplate_prototyping.Framework
         private void LoadGroup()
         {
             _group = new StringTemplateGroup("views", _viewPath);
+            _group.ErrorListener = new StringTemplateErrorListener();
         }
 
         private StringTemplateGroup _group;
@@ -44,6 +46,20 @@ namespace stringtemplate_prototyping.Framework
             }
         }
     }
+
+    internal class StringTemplateErrorListener : IStringTemplateErrorListener
+    {
+        public void Error(string msg, Exception e)
+        {
+            throw new Exception("String template went wrong: " + msg, e);
+        }
+
+        public void Warning(string msg)
+        {
+            Debug.WriteLine("StringTemplate warning " + msg);
+        }
+    }
+
     /// <summary>
     /// The ViewEngine for StringTemplate Views
     /// </summary>

@@ -25,7 +25,7 @@
 		<!-- ==================== Main Column ==================== -->
 		<div id="MainCol">
 			<div id="MainColInner">
-				
+				$content$
 			</div>
 		</div>
 

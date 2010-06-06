@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Main\Index.st" />
+    <Resource Include="Views\Sample\shared\menuitem.st" />
     <Resource Include="Views\Sample\home\index.st" />
     <Resource Include="Views\Sample\shared\master.st" />
   </ItemGroup>
